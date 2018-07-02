@@ -31,15 +31,7 @@
 					<th>No. Hp</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>data</td>
-					<td>data</td>
-					<td>data</td>
-					<td>data</td>
-					<td>data</td>
-				</tr>
-			</tbody>
+	
 		</table>
 	</div>
 	<div id="AddModal" class="modal fade">
