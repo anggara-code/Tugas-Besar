@@ -12,6 +12,9 @@ class C_login extends CI_Controller {
 	}
 	public function index()
 	{
+		if ($this->session->userdata('level') == "admin") {
+			redirect('c_pendaki','refresh');
+		}
 		$this->load->view('v_login');		
 	}
 

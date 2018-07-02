@@ -35,7 +35,7 @@
 		                      	<?php echo form_error('pass','<span class"text-danger">','</span>') ?>
 		                    </div>
 		                    <br>
-		                    <input type="submit" class="btn btn-block btn-success" value="Sign In">
+		                    <input type="submit" class="btn btn-block btn-success" value="LOGIN">
 	                  	</form>
 	               	</div>
               	</div>
