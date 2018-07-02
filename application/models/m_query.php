@@ -31,17 +31,6 @@ class M_query extends CI_Model {
 			}
 		}	
 
-
-	public function dataPendaki()
-	{
-		$this->db->select('*');
-		$this->db->from('tb_pendaki');
-		$this->db->order_by('NO', 'asc');
-		$data = $this->db->get('');
-		return $data;
-	}
-
-
 		public function TambahPendaki()
 		{
 			$data=array(
