@@ -9,6 +9,7 @@ class C_login extends CI_Controller {
 		$this->load->helper('url', 'html');
 		$this->load->library('form_validation');
 		$this->load->model('m_query');
+		/*$this->load->controllers('c_pendaki');*/
 	}
 	public function index()
 	{

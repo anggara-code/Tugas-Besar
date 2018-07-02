@@ -27,9 +27,19 @@ class M_query extends CI_Model {
 			}
 			else{
 				$this->session->set_flashdata('pesan', 'username dan password tidak valid');
-				redirect('c_login','refresh');
+				redirect('C_login','refresh');
 			}
 		}	
+
+		public function TambahPendaki()
+		{
+			$data=array(
+				'noktp' => $this->input->post('noktp'),
+				'nama' => $this->input->post('nama'),
+				'alamat' => $this->input->post('alamat'),
+				'nohp' => $this->input->post('nohp'));
+			$this->db->insert('tb_pendaki',$data);
+		}
 
 }
 

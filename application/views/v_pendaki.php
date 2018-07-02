@@ -52,22 +52,34 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<form action="" method="post" accept-charset="utf-8">
+					<form action="<?php echo base_url('c_pendaki/insertPendaki') ?>" method="post" accept-charset="utf-8">
 						<div class="form-group">
 							<Label1>NO. KTP</Label1>
 							<input class="form-control" type="text" name="noktp" placeholder="Masukkan Nomor KTP Atau Tanda Pengenal Anda Yang Lain" required="">
+						</div>
+						<div class="col-md-12">
+							<?php echo form_error('noktp','<span class="text-danger>','</span>')?>
 						</div>
 						<div class="form-group">
 							<Label1>NAMA</Label1>
 							<input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Anda Sesuai Kartu Identitas Yang Digunakan" required="">
 						</div>
+						<div class="col-md-12">
+							<?php echo form_error('nama','<span class="text-danger>','</span>')?>
+						</div>
 						<div class="form-group">
 							<Label1>ALAMAT</Label1>
 							<input class="form-control" type="text" name="alamat" placeholder="Masukkan Alamat Anda Sesuai Dengan Yang Tertera Pada Kartu Tanda Pengenal Anda" required="">
 						</div>
+						<div class="col-md-12">
+							<?php echo form_error('alamat','<span class="text-danger>','</span>')?>
+						</div>
 						<div class="form-group">
 							<Label1>NO. HP</Label1>
 							<input class="form-control" type="text" name="nohp" placeholder="Masukkan No. HP Anda Yang Bisa Dihubungi" required="">
+						</div>
+						<div class="col-md-12">
+							<?php echo form_error('nohp','<span class="text-danger>','</span>')?>
 						</div>
 						<div class="form-group">
 							<Label1></Label1>
