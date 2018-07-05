@@ -28,6 +28,7 @@ class C_login extends CI_Controller {
 			$username = $this->input->post('username');
 			$pass = $this->input->post('pass');
 			$this->m_query->login($username, $pass);
+			// redirect(site_url().'c_pendaki');
 		} else {
 			$this->index();
 		}

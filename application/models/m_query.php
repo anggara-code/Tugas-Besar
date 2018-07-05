@@ -21,7 +21,7 @@ class M_query extends CI_Model {
 					if ($row->level=="admin") {
 						$session = array('level'=>$row);
 					}
-					$this->load->view('v_pendaki');
+					redirect('C_pendaki','refresh');
 				}
 				// echo "sukses";
 			}
@@ -35,20 +35,20 @@ class M_query extends CI_Model {
 	public function dataPendaki()
 	{
 		$this->db->select('*');
-		$this->db->from('tb_pendaki');
-		$this->db->order_by('NO', 'asc');
-		$data = $this->db->get('');
+		/*$this->db->from('tb_pendaki');*/
+		$this->db->order_by('no', 'asc');
+		$data = $this->db->get('tb_pendaki');
 		return $data;
 	}
 
 
-		public function TambahPendaki()
+		public function TambahPendaki($data)
 		{
-			$data=array(
-				'noktp' => $this->input->post('noktp'),
-				'nama' => $this->input->post('nama'),
-				'alamat' => $this->input->post('alamat'),
-				'nohp' => $this->input->post('nohp'));
+			// $data=array(
+			// 	'noktp' => $this->input->post('noktp'),
+			// 	'nama' => $this->input->post('nama'),
+			// 	'alamat' => $this->input->post('alamat'),
+			// 	'nohp' => $this->input->post('nohp'));
 			$this->db->insert('tb_pendaki',$data);
 		}
 

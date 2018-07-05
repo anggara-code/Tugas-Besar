@@ -31,7 +31,21 @@
 					<th>No. Hp</th>
 				</tr>
 			</thead>
-	
+		<?php
+		if ($data->num_rows() > 0) {
+		 	foreach ($data->result() as $row) {
+		 		?>
+		 		<tr>
+		 			<td><?php echo $row->no ?></td>
+		 			<td><?php echo $row->noktp ?></td>
+		 			<td><?php echo $row->nama ?></td>
+		 			<td><?php echo $row->alamat ?></td>
+		 			<td><?php echo $row->nohp ?></td>
+		 		</tr>
+		 		<?php
+		 	}
+		 } 
+		?>
 		</table>
 	</div>
 	<div id="AddModal" class="modal fade">
@@ -47,7 +61,7 @@
 					<form action="<?php echo base_url('c_pendaki/insertPendaki') ?>" method="post" accept-charset="utf-8">
 						<div class="form-group">
 							<Label1>NO. KTP</Label1>
-							<input class="form-control" type="text" name="noktp" placeholder="Masukkan Nomor KTP Atau Tanda Pengenal Anda Yang Lain" required="">
+							<input class="form-control" type="number" name="noktp" placeholder="Masukkan Nomor KTP Atau Tanda Pengenal Anda Yang Lain" required="">
 						</div>
 						<div class="col-md-12">
 							<?php echo form_error('noktp','<span class="text-danger>','</span>')?>
@@ -68,7 +82,7 @@
 						</div>
 						<div class="form-group">
 							<Label1>NO. HP</Label1>
-							<input class="form-control" type="text" name="nohp" placeholder="Masukkan No. HP Anda Yang Bisa Dihubungi" required="">
+							<input class="form-control" type="number" name="nohp" placeholder="Masukkan No. HP Anda Yang Bisa Dihubungi" required="">
 						</div>
 						<div class="col-md-12">
 							<?php echo form_error('nohp','<span class="text-danger>','</span>')?>
