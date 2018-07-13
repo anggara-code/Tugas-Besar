@@ -21,7 +21,7 @@ class M_query extends CI_Model {
 					if ($row->level=="admin") {
 						$session = array('level'=>$row);
 					}
-					redirect('C_pendaki','refresh');
+					redirect('c_admin');
 				}
 				// echo "sukses";
 			}

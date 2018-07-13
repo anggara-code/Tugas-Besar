@@ -14,8 +14,11 @@ class C_pendaki extends CI_Controller {
 
 	public function index()
 	{
+		$data['title']='Data Pendaki';
+		$data['content']='v_pendaki.php';
 		$data['data'] = $this->m_query->dataPendaki();
-		$this->load->view('v_pendaki', $data);
+		
+		$this->load->view('admin/v_template', $data);
 	}
 
 	public function insertPendaki()
