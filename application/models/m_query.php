@@ -52,6 +52,14 @@ class M_query extends CI_Model {
 			$this->db->insert('tb_pendaki',$data);
 		}
 
+	/*public function AmbilDataPendaki($no)
+	{
+		$data = $this->db->where(['no'=>$no])
+						 ->get("tb_pendaki");
+		if ($data->num_rows() > 0) {
+			return $data->row();
+		}
+	}*/
 }
 
 /* End of file m_query.php */
