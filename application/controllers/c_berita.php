@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_pendaki extends CI_Controller {
+class C_berita extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_query');
+		$this->load->model('m_user');
 		$this->load->library('form_validation');
 		$this->load->helper('url','html');
 
@@ -14,10 +14,21 @@ class C_pendaki extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('v_pendaki');
+		$data['title']='Berita';
+		$data['content']='v_berita.php';
+		$data['data'] = $this->m_user->get_all();
+
+		$this->load->view('admin/v_template', $data);
 	}
 
-	public function insertPendaki()
+	public function insertBerita()
+	{
+		$data['title']='Insert Berita';
+		$data['content']='berita/v_insert.php';
+
+		$this->load->view('admin/v_template', $data);
+	}
+	public function updatePendaki()
 	{
 		$this->form_validation->set_rules('noktp', 'noktp', 'required');
 		$this->form_validation->set_rules('nama', 'nama', 'required');
@@ -30,24 +41,35 @@ class C_pendaki extends CI_Controller {
 			$nama = $this->input->post('nama');
 			$alamat = $this->input->post('alamat');
 			$nohp = $this->input->post('nohp');
-			$pendaki = (['noktp'=>$noktp,
+			$pendaki = array('noktp'=>$noktp,
 							'nama'=>$nama,
 							'alamat'=>$alamat,
-							'nohp'=>$nohp]);
-			$data = array_merge($pendaki);
-			if ($this->m_query->TambahPendaki($data) == false) 
+							'nohp'=>$nohp);
+			// $data = array_merge($pendaki);
+			if ($this->db->where('no',$this->input->post('no'))->set($pendaki)->update('tb_pendaki') == false)
 			{
 				$this->session->set_flashdata('pesan','Data Anda Sudah Tersimpan di database');
-				$this->load->view('v_pendaki');	
+				redirect('C_pendaki','refresh');
 			}
 			else
 			{
 				$this->index();
 			}
-		} 
+		}
 		else
 		{
 			$this->index();
 		}
 	}
+	public function hapus()
+	{
+		$this->db->where('no',$this->uri->segment(3))->delete('tb_pendaki');
+		redirect('C_pendaki');
+	}
+	/*public function EditPendaki($data)
+	{
+		$data = $this->m_query->AmbilDataPendaki($no);
+		$this->load->view('v_editpendaki', ['data'=>$data]);
+	}*/
+
 }
