@@ -108,9 +108,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <p>Log out</p>
-                </a>
+                <li><a onclick="return confirm('yakin Ingin Keluar?')" href="<?php echo base_url('c_login/keluar') ?>"><i class="fa fa-user"></i> Logout</a></li>
               </li>
               <li class="separator hidden-lg"></li>
             </ul>
@@ -132,7 +130,7 @@
         <div class="container-fluid">
           <nav class="pull-left">
             <ul>
-              <li>
+              <!-- <li>
                 <a href="#">
                   Home
                 </a>
@@ -152,7 +150,7 @@
                   Blog
                 </a>
               </li>
-            </ul>
+                          </ul> -->
           </nav>
           <p class="copyright pull-right">
             &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web

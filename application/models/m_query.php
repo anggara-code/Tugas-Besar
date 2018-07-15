@@ -17,12 +17,11 @@ class M_query extends CI_Model {
 			$this->db->where(['username'=>$username, 'pass'=>$pass]);
 			$return = $this->db->get('');
 			if ($return->num_rows() > 0) {
-				foreach ($return->result() as $row) {
-					if ($row->level=="admin") {
-						$session = array('level'=>$row);
-					}
-					redirect('c_admin');
-				}
+				$rows = $return->row_array();
+				
+				$this->session->set_userdata('session_user',$rows);
+				redirect('c_admin');
+				
 				// echo "sukses";
 			}
 			else{
@@ -31,13 +30,20 @@ class M_query extends CI_Model {
 			}
 		}	
 
-
 	public function dataPendaki()
 	{
 		$this->db->select('*');
 		/*$this->db->from('tb_pendaki');*/
 		$this->db->order_by('no', 'asc');
 		$data = $this->db->get('tb_pendaki');
+		return $data;
+	}
+	public function dataBerita()
+	{
+		$this->db->select('*');
+		/*$this->db->from('tb_pendaki');*/
+		$this->db->order_by('no', 'asc');
+		$data = $this->db->get('tb_berita');
 		return $data;
 	}
 
@@ -50,6 +56,15 @@ class M_query extends CI_Model {
 			// 	'alamat' => $this->input->post('alamat'),
 			// 	'nohp' => $this->input->post('nohp'));
 			$this->db->insert('tb_pendaki',$data);
+		}
+		public function TambahBerita($data)
+		{
+			// $data=array(
+			// 	'noktp' => $this->input->post('noktp'),
+			// 	'nama' => $this->input->post('nama'),
+			// 	'alamat' => $this->input->post('alamat'),
+			// 	'nohp' => $this->input->post('nohp'));
+			$this->db->insert('tb_berita',$data);
 		}
 
 	/*public function AmbilDataPendaki($no)

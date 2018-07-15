@@ -56,34 +56,82 @@
       </div>
     </div>
   </header>
-
-  <!-- Main Content -->
-  <?php //include $content; ?>
+  
+  <?php
+  $baca = $this->db->where('id',$this->uri->segment(3))->get('tb_berita')->row_array();
+  ?>
   <div class="container">
     <div class="row">
-      <?php foreach ($all_berita->result() as $key): ?>
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="col-lg-12 col-md-12 col-sm-12 portfolio-item">
           <div class="card">
-            <?php if ($key->foto) : ?>
-              <a href="#"><img class="card-img-top" src="<?php echo base_url() .'assets/images/upload/berita/'. $key->foto?>" alt="Card image cap" style="height: 180px; width: 100%;"></a>
+            <?php if ($baca['foto']) : ?>
+              <a href="#"><img class="card-img-top" src="<?php echo base_url() .'assets/images/upload/berita/'. $baca['foto']?>" alt="Card image cap"></a>
               <?php ; else : ?>
                 <a href="#"><img class="card-img-top" src="http://via.placeholder.com/256x180" alt="Card image cap" style="height: 180px; width: 100%;"></a>
               <?php endif; ?>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#"><?php echo $key->judul; ?></a>
+                  <a href="#"><?php echo $baca['judul']; ?></a>
                 </h4>
-                <p class="card-text"><?php echo substr($key->isi,0,100); ?></p>
-                <a href="c_berita/baca/<?php echo $key->id ?>" class="btn btn-outline-primary">baca</a>
+                <p class="card-text"><?php echo ($baca['isi']); ?></p>
               </div>
             </div>
             <br>
           </div>
-        <?php endforeach; ?>
       </div>
     </div>
-    <hr>
-
+    <div class="text-center">
+    <a style="margin-bottom: 10px;" href="" class="btn btn-primary" data-toggle="modal" data-target="#AddModal">PENGUNJUNG YANG BAIK SELALU MENINGGALKAN JEJAK</a>
+    </div>
+    <div id="AddModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title text-center col-md-12">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 align="center">ISI BUKU TAMU</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo base_url('c_pendaki/insertPendaki') ?>" method="post" accept-charset="utf-8">
+            <div class="form-group">
+              <Label1>NO. Identitas</Label1>
+              <input class="form-control" type="number" name="noktp" placeholder="Masukkan Nomor KTP Atau Tanda Pengenal Anda Yang Lain" required="">
+            </div>
+            <div class="col-md-12">
+              <?php echo form_error('noktp','<span class="text-danger>','</span>')?>
+            </div>
+            <div class="form-group">
+              <Label1>NAMA</Label1>
+              <input class="form-control" type="text" name="nama" placeholder="Masukkan Nama Anda Sesuai Kartu Identitas Yang Digunakan" required="">
+            </div>
+            <div class="col-md-12">
+              <?php echo form_error('nama','<span class="text-danger>','</span>')?>
+            </div>
+            <div class="form-group">
+              <Label1>ALAMAT</Label1>
+              <input class="form-control" type="text" name="alamat" placeholder="Masukkan Alamat Anda Sesuai Dengan Yang Tertera Pada Kartu Tanda Pengenal Anda" required="">
+            </div>
+            <div class="col-md-12">
+              <?php echo form_error('alamat','<span class="text-danger>','</span>')?>
+            </div>
+            <div class="form-group">
+              <Label1>NO. HP</Label1>
+              <input class="form-control" type="number" name="nohp" placeholder="Masukkan No. HP Anda Yang Bisa Dihubungi" required="">
+            </div>
+            <div class="col-md-12">
+              <?php echo form_error('nohp','<span class="text-danger>','</span>')?>
+            </div>
+            <div class="form-group">
+              <Label1></Label1>
+              <input type="button" value="Batal" data-dismiss="modal">
+              <input type="submit" name="" value="Simpan">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- Footer -->
     <footer>
       <div class="container">

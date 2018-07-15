@@ -9,6 +9,11 @@ class C_pendaki extends CI_Controller {
 		$this->load->model('m_query');
 		$this->load->library('form_validation');
 		$this->load->helper('url','html');
+		$sess=$this->session->userdata('session_user');
+		// print_r($sess); die;
+		if ($sess['level']!='admin') {
+			redirect(base_url().'c_login/keluar');
+		}
 
 	}
 
