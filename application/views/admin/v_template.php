@@ -167,7 +167,7 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="<?php echo base_url(); ?>assets/vendor/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/vendor/js/jquery.3.2.1.min.js" type="text/javascript"></script> -->
 <script src="<?php echo base_url(); ?>assets/vendor/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
