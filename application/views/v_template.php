@@ -71,9 +71,10 @@
               <?php endif; ?>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#"><?php echo $key->judul; ?></a>
+                  <?php echo $key->judul; ?>
                 </h4>
-                <p class="card-text"><?php echo substr($key->isi,0,100); ?></p>
+                <!-- <p class="card-text"><?php echo substr($key->isi,0,100); ?></p> -->
+                <p class="card-text"><?php echo $key->waktu; ?></p>
                 <a href="c_berita/baca/<?php echo $key->id ?>" class="btn btn-outline-primary">baca</a>
               </div>
             </div>
