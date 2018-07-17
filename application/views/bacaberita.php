@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="modal-body">
-          <form action="<?php echo base_url('c_pendaki/insertPendaki') ?>" method="post" accept-charset="utf-8">
+          <form action="<?php echo base_url('c_tamu/insertPendaki') ?>" method="post" accept-charset="utf-8">
             <div class="form-group">
               <Label1>NO. Identitas</Label1>
               <input class="form-control" type="number" name="noktp" placeholder="Masukkan Nomor KTP Atau Tanda Pengenal Anda Yang Lain" required="">
